@@ -139,3 +139,53 @@ public record JobSearch(
 );
 
 public record NodeAddSshKeyPost(Guid MachineId, string PublicKey);
+
+public record ReproGet(Guid? VmId);
+
+public record ProxyGet(
+    Guid? ScalesetId,
+    Guid? MachineId,
+    int? DstPort);
+
+public record ProxyCreate(
+    Guid ScalesetId,
+    Guid MachineId,
+    int DstPort,
+    int Duration
+);
+
+public record ProxyDelete(
+    Guid ScalesetId,
+    Guid MachineId,
+    int? DstPort
+);
+
+public record ProxyReset(
+    string Region
+);
+
+public record TaskGet(Guid TaskId);
+
+public record TaskSearch(
+    Guid? JobId,
+    Guid? TaskId,
+    List<TaskState> State);
+
+public record PoolSearch(
+    Guid? PoolId = null,
+    PoolName? Name = null,
+    List<PoolState>? State = null
+);
+
+public record PoolStop(
+    PoolName Name,
+    bool Now
+);
+
+public record PoolCreate(
+    PoolName Name,
+    Os Os,
+    Architecture Arch,
+    bool Managed,
+    Guid? ClientId = null
+);

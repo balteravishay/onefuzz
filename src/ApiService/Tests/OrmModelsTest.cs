@@ -112,7 +112,7 @@ namespace Tests {
                 arg =>
                     new ProxyForward(
                         Region: arg.Item1.Item1,
-                        Port: arg.Item1.Item2.ToString(),
+                        Port: arg.Item1.Item2,
                         ScalesetId: arg.Item1.Item3,
                         MachineId: arg.Item1.Item4,
                         ProxyId: arg.Item1.Item5,
@@ -268,7 +268,7 @@ namespace Tests {
                         InstanceName: arg.Item4,
                         WebhookId: arg.Item5
                     )
-            ); ;
+            );
         }
 
         public static Gen<WebhookMessageEventGrid> WebhookMessageEventGrid() {

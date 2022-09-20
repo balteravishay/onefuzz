@@ -109,6 +109,7 @@ public class Program {
             .AddScoped<INodeTasksOperations, NodeTasksOperations>()
             .AddScoped<INodeMessageOperations, NodeMessageOperations>()
             .AddScoped<IRequestHandling, RequestHandling>()
+            .AddScoped<IImageOperations, ImageOperations>()
             .AddScoped<IOnefuzzContext, OnefuzzContext>()
             .AddScoped<IEndpointAuthorization, EndpointAuthorization>()
             .AddScoped<INodeMessageOperations, NodeMessageOperations>()
@@ -117,7 +118,8 @@ public class Program {
             .AddSingleton<ICreds, Creds>()
             .AddSingleton<IServiceConfig, ServiceConfiguration>()
             .AddSingleton<IStorage, Storage>()
-            .AddHttpClient();
+            .AddHttpClient()
+            .AddMemoryCache();
         }
         )
         .Build();
